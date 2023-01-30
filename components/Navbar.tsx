@@ -30,7 +30,7 @@ function Navbar() {
         <ul className="mt-4 flex flex-col gap-6 text-center sm:mt-0 sm:ml-4 sm:flex-row">
           <li className="font-ubuntu text-sm font-bold uppercase">
             <Link
-              href="home"
+              href="index"
               className="cursor-pointer text-neutral-500 hover:text-sky-600 focus:text-sky-600"
             >
               HOME

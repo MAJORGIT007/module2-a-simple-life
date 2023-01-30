@@ -5,7 +5,7 @@ import Posts from "components/Posts";
 import AboutmeSidebar from "components/AboutmeSidebar";
 import RecentpostsSidebar from "components/RecentpostsSidebar";
 
-export default function home() {
+export default function index() {
   const cards = data
     .filter((item) => item.id !== 1)
     .map((item) => {

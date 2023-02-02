@@ -7,7 +7,7 @@ function RecentpostsSidebar() {
     .filter((item) => item.id !== 1)
     .map((item) => {
       return (
-        <div className="">
+        <div className="" key={item.id}>
           <div className="relative">
             <img
               src={`/${item.image}`}

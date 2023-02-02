@@ -6,20 +6,6 @@ import AboutmeSidebar from "components/AboutmeSidebar";
 import RecentpostsSidebar from "components/RecentpostsSidebar";
 
 export default function index() {
-  const cards = data
-    .filter((item) => item.id !== 1)
-    .map((item) => {
-      return (
-        <Posts
-          key={item.id}
-          image={item.image}
-          title={item.title}
-          date={item.date}
-          text={item.text}
-        />
-      );
-    });
-
   return (
     <>
       <Head>
@@ -30,7 +16,27 @@ export default function index() {
       <div className="mx-auto w-[90%] max-w-[980px] py-8">
         <div className="flex flex-col gap-10 md:flex-row">
           <main className="md:w-[75%]">
-            <div className="flex flex-col justify-between">
+            {data.slice(0, 1).map((item) => (
+              <div className="flex flex-col justify-between" key={item.id}>
+                <h2 className="order-1 font-lora text-2xl font-medium text-sky-900 md:order-4 md:my-3">
+                  {item.title}
+                </h2>
+                <img
+                  src={`/${item.image}`}
+                  alt="a clock, pot of plant and table lamp"
+                  className="order-2 my-4 min-h-[250px] max-w-full md:mb-4 md:mt-0"
+                />
+                <p className="order-3 mb-2 text-sm">{item.date}</p>
+                <p className="order-4 leading-relaxed">{item.text}</p>
+                <Link
+                  href="#"
+                  className="order-5 my-6 font-bold uppercase text-sky-600 hover:text-sky-900"
+                >
+                  continue reading
+                </Link>
+              </div>
+            ))}
+            {/* <div className="flex flex-col justify-between">
               <h2 className="order-1 font-lora text-2xl font-medium text-sky-900 md:order-4 md:my-3">
                 Finding simplicity in life
               </h2>
@@ -61,9 +67,19 @@ export default function index() {
               >
                 continue reading
               </Link>
-            </div>
+            </div> */}
             <div className="mb-10 border-b-4 border-neutral-200" />
-            <div className="flex flex-col gap-4 md:gap-8">{cards}</div>
+            <div className="flex flex-col gap-4 md:gap-8">
+              {data.slice(1).map((item) => (
+                <Posts
+                  key={item.id}
+                  image={item.image}
+                  title={item.title}
+                  date={item.date}
+                  text={item.text}
+                />
+              ))}
+            </div>
           </main>
           <div className="md:w-[25%]">
             <AboutmeSidebar />
